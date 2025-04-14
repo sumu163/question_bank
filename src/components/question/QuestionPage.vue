@@ -133,7 +133,7 @@ const toSubmit = async () => {
     // 如果回答正确，调到下一道题
     // 比对答案的方法
     const isTrue = (type: QuestionType, userAns: Answer, ans: Answer) => {
-      if (!userAns) {
+      if (userAns === undefined) {
         return false;
       }
       if (type === 'multiple') {

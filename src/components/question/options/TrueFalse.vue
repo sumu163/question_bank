@@ -34,10 +34,11 @@ const getIcon = (option: boolean) => {
   if (props.isSubmit) {
     // 是正确选项，用户选了
     if (option === props.question.answer) {
-      return props.userAnswer && option === props.userAnswer ? 'success' : 'error';
+      // 用户没选的不管
+      return props.userAnswer !== undefined && option === props.userAnswer ? 'success' : undefined;
     }
     // 用户选了但不是正确选项
-    if (props.userAnswer && option === props.userAnswer) {
+    if (props.userAnswer !== undefined && option === props.userAnswer) {
       return 'error';
     }
   }
